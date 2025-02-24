@@ -25,7 +25,7 @@ ui <- fluidPage(
       verbatimTextOutput("gene_status")
     ),
     mainPanel(
-      plotOutput("featurePlot", height = "900px", width = "900px"),  
+      plotOutput("featurePlot", height = "600px", width = "1000px"),  
       downloadButton("downloadPlot", "Download Plot")
     )
   )
@@ -95,8 +95,8 @@ server <- function(input, output, session) {
       cowplot::plot_grid(
         dotplot_rna, feature_plot,
         ncol = 2,
-        rel_heights = c(1, 1),
-        rel_widths = c(1, 1)
+        rel_heights = c(0.5, 0.5),
+        rel_widths = c(0.9, 0.9)
       )
     }, error = function(e) {
       values$status <- paste("Error generating plots:", e$message)
